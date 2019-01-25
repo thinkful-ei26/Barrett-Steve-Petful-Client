@@ -15,6 +15,9 @@ export default function DashBoard(props) {
           breed: 'Bengal',
           story: 'Thrown on the street'
         }}
+        onAdoptPet={() => {
+          console.log('Adopting')
+        }}
       />
 
       <Pet
@@ -28,6 +31,9 @@ export default function DashBoard(props) {
           age: 3,
           breed: 'Golden Retriever',
           story: 'Owner Passed away'
+        }}
+        onAdoptPet={() => {
+          console.log('Adopting')
         }}
       />
     </div>
