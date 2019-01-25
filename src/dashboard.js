@@ -1,6 +1,11 @@
 import React from 'react'
 import Pet from './Pet'
-export default function DashBoard(props) {
+import { connect } from 'react-redux'
+
+import { fetchCat } from './actions/cat'
+import { fetchDog } from './actions/dog'
+
+export function DashBoard(props) {
   return (
     <div>
       <Pet
@@ -16,7 +21,7 @@ export default function DashBoard(props) {
           story: 'Thrown on the street'
         }}
         onAdoptPet={() => {
-          console.log('Adopting')
+          props.dispatch(fetchCat())
         }}
       />
 
@@ -33,9 +38,22 @@ export default function DashBoard(props) {
           story: 'Owner Passed away'
         }}
         onAdoptPet={() => {
-          console.log('Adopting')
+          props.dispatch(fetchDog())
         }}
       />
     </div>
   )
 }
+
+const mapStateToProps = state => {
+  return {
+    catData: state.cat.data,
+    catError: state.cat.error,
+    catSuccess: state.cat.success,
+
+    dogData: state.dog.data,
+    dogError: state.dog.error,
+    dogSuccess: state.dog.success
+  }
+}
+export default connect(mapStateToProps)(DashBoard)

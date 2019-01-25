@@ -43,4 +43,5 @@ export function dogReducer(state = initialState, action) {
       error: action.error
     })
   }
+  return state
 }

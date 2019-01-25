@@ -43,4 +43,5 @@ export function catReducer(state = initialState, action) {
       error: action.error
     })
   }
+  return state
 }
