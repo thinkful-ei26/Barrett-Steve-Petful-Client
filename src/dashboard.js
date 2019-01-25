@@ -2,8 +2,8 @@ import React from 'react'
 import Pet from './Pet'
 import { connect } from 'react-redux'
 
-import { fetchCat } from './actions/cat'
-import { fetchDog } from './actions/dog'
+import { fetchCat, adoptCat } from './actions/cat'
+import { fetchDog, adoptDog } from './actions/dog'
 
 export class DashBoard extends React.Component {
   constructor(props) {
@@ -29,7 +29,7 @@ export class DashBoard extends React.Component {
               story: this.props.catData.story
             }}
             onAdoptPet={() => {
-              this.props.dispatch(fetchCat())
+              this.props.dispatch(adoptCat())
             }}
           />
 
@@ -44,7 +44,7 @@ export class DashBoard extends React.Component {
               story: this.props.dogData.story
             }}
             onAdoptPet={() => {
-              this.props.dispatch(fetchDog())
+              this.props.dispatch(adoptDog())
             }}
           />
         </div>
