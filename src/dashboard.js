@@ -1,55 +1,35 @@
-import React from 'react';
-
+import React from 'react'
+import Pet from './Pet'
 export default function DashBoard(props) {
   return (
     <div>
-      <section className="catToAdopt">
-        <header>
-          <h1>{props.catToAdopt.name}</h1>
-          <img
-            src={props.catToAdopt.imageURL}
-            alt={props.catToAdopt.imageDescription}
-            height="150" width="150"/>
-        </header>
+      <Pet
+        petToAdopt={{
+          imageURL:
+            'https://assets3.thrillist.com/v1/image/2622128/size/tmg-slideshow_l.jpg',
+          imageDescription:
+            'Orange bengal cat with black stripes lounging on concrete.',
+          name: 'Fluffy',
+          sex: 'Female',
+          age: 2,
+          breed: 'Bengal',
+          story: 'Thrown on the street'
+        }}
+      />
 
-        <main>
-          <dl>
-            <dt>{props.catToAdopt.name}</dt>
-            <dd>{props.catToAdopt.sex}</dd>
-            <dd>{props.catToAdopt.age}</dd>
-            <dd>{props.catToAdopt.breed}</dd>
-            <dd>{props.catToAdopt.story}</dd>
-          </dl>
-
-          <button className="adoptButton">adopt</button>
-        </main>
-      </section>
-
-      <section className="dogToAdopt">
-        <header>
-          <h1>{props.dogToAdopt.name}</h1>
-          <img
-            src={props.dogToAdopt.imageURL}
-            alt={props.dogToAdopt.imageDescription}
-            height="150" width="150"
-          />
-        </header>
-
-        <main>
-          <dl>
-            <dt>{props.dogToAdopt.name}</dt>
-            <dd>{props.dogToAdopt.sex}</dd>
-            <dd>{props.dogToAdopt.age}</dd>
-            <dd>{props.dogToAdopt.breed}</dd>
-            <dd>{props.dogToAdopt.story}</dd>
-          </dl>
-        </main>
-
-        <button className="adoptButton" onClick={()=>{
-          console.log("Adopting")
-        }}>adopt</button>
-      </section>
+      <Pet
+        petToAdopt={{
+          imageURL:
+            'http://www.dogster.com/wp-content/uploads/2015/05/Cute%20dog%20listening%20to%20music%201_1.jpg',
+          imageDescription:
+            'A smiling golden-brown golden retreiver listening to music.',
+          name: 'Zeus',
+          sex: 'Male',
+          age: 3,
+          breed: 'Golden Retriever',
+          story: 'Owner Passed away'
+        }}
+      />
     </div>
-
   )
 }
