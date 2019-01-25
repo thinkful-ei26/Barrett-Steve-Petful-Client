@@ -6,9 +6,9 @@ export default function DashBoard(props) {
       <section className="catToAdopt">
         <header>
           <h1>{props.catToAdopt.name}</h1>
-          <img 
-            src={props.catToAdopt.imageURL} 
-            alt={props.catToAdopt.imageDescription} 
+          <img
+            src={props.catToAdopt.imageURL}
+            alt={props.catToAdopt.imageDescription}
             height="150" width="150"/>
         </header>
 
@@ -28,9 +28,9 @@ export default function DashBoard(props) {
       <section className="dogToAdopt">
         <header>
           <h1>{props.dogToAdopt.name}</h1>
-          <img 
-            src={props.dogToAdopt.imageURL} 
-            alt={props.dogToAdopt.imageDescription} 
+          <img
+            src={props.dogToAdopt.imageURL}
+            alt={props.dogToAdopt.imageDescription}
             height="150" width="150"
           />
         </header>
@@ -45,9 +45,11 @@ export default function DashBoard(props) {
           </dl>
         </main>
 
-        <button className="adoptButton">adopt</button>
+        <button className="adoptButton" onClick={()=>{
+          console.log("Adopting")
+        }}>adopt</button>
       </section>
     </div>
-    
+
   )
 }
