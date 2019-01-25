@@ -5,44 +5,54 @@ import { connect } from 'react-redux'
 import { fetchCat } from './actions/cat'
 import { fetchDog } from './actions/dog'
 
-export function DashBoard(props) {
-  return (
-    <div>
-      <Pet
-        petToAdopt={{
-          imageURL:
-            'https://assets3.thrillist.com/v1/image/2622128/size/tmg-slideshow_l.jpg',
-          imageDescription:
-            'Orange bengal cat with black stripes lounging on concrete.',
-          name: 'Fluffy',
-          sex: 'Female',
-          age: 2,
-          breed: 'Bengal',
-          story: 'Thrown on the street'
-        }}
-        onAdoptPet={() => {
-          props.dispatch(fetchCat())
-        }}
-      />
+export class DashBoard extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+  componentDidMount() {
+    this.props.dispatch(fetchCat())
+    this.props.dispatch(fetchDog())
+  }
+  render() {
+    console.log(this.props.dogData)
+    if (this.props.dogData && this.props.catData) {
+      return (
+        <div>
+          <Pet
+            petToAdopt={{
+              imageURL: this.props.catData.imageURL,
+              imageDescription: this.props.catData.imageDescription,
+              name: this.props.catData.name,
+              sex: this.props.catData.sex,
+              age: this.props.catData.age,
+              breed: this.props.catData.breed,
+              story: this.props.catData.story
+            }}
+            onAdoptPet={() => {
+              this.props.dispatch(fetchCat())
+            }}
+          />
 
-      <Pet
-        petToAdopt={{
-          imageURL:
-            'http://www.dogster.com/wp-content/uploads/2015/05/Cute%20dog%20listening%20to%20music%201_1.jpg',
-          imageDescription:
-            'A smiling golden-brown golden retreiver listening to music.',
-          name: 'Zeus',
-          sex: 'Male',
-          age: 3,
-          breed: 'Golden Retriever',
-          story: 'Owner Passed away'
-        }}
-        onAdoptPet={() => {
-          props.dispatch(fetchDog())
-        }}
-      />
-    </div>
-  )
+          <Pet
+            petToAdopt={{
+              imageURL: this.props.dogData.imageURL,
+              imageDescription: this.props.dogData.imageDescription,
+              name: this.props.dogData.name,
+              sex: this.props.dogData.sex,
+              age: this.props.dogData.age,
+              breed: this.props.dogData.breed,
+              story: this.props.dogData.story
+            }}
+            onAdoptPet={() => {
+              this.props.dispatch(fetchDog())
+            }}
+          />
+        </div>
+      )
+    } else {
+      return <p>nothing to see here</p>
+    }
+  }
 }
 
 const mapStateToProps = state => {
