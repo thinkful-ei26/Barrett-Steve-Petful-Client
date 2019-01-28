@@ -28,7 +28,7 @@ export const fetchCat = () => dispatch => {
       }
       return res.json()
     })
-    .then(routes => dispatch(fetchCatSuccess(routes)))
+    .then(() => dispatch(fetchCat()))
     .catch(err => dispatch(fetchCatError(err)))
 }
 
